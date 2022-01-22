@@ -1,5 +1,19 @@
 ---
 layout: default
+titleAfter: Information Eurientis.
+meta: servir dans l'ère numérique.
 ---
 
-<h1>Homepage</h1>
+<h1>Eurientis</h1>
+<p>Une association 1901</p>
+
+<h2>Mission</h2>
+
+<ol>
+  {% for post in site.data.post-types %}
+    <li>
+      <a href="{{site.baseurl}}/{{post.folder}}/">{{post.title}}</a>
+      {{post.content | markdownify}}
+    </li>
+  {% endfor %}
+</ol>

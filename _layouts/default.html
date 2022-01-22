@@ -1,36 +1,24 @@
 <!DOCTYPE html>
-<html lang="en-ca">
+<html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Website</title>
+  <title>{% if page.title %}{{page.title}} · {% endif %}Eurientis{% if page.titleAfter %} · {{page.titleAfter}}{% endif %}</title>
+  <link href="{{site.baseurl}}/css/main.css" rel="stylesheet">
+  <meta name="description" content="{{page.meta}}">
 </head>
 <body>
-  <header>
-    <h1></h1>
-    <nav></nav>
-  </header>
 
-  <nav>
-    <ul>
-      <li>
-        <a href="{{site.baseurl}}/">Home</a>
-      </li>
-      <li> 
-        <a href="{{site.baseurl}}/contact">Contact</a> 
-      </li>
-      <li>
-        <a href="{{site.baseurl}}/about">A propos</a>
-      </li>
-    </ul>
+<header class="masthead {{page.mastheadClass}}">
+  <h1>EURIENTIS</h1>
+  {% include nav.html navclass='nav-top' %}
+</header>
 
-  </nav>
+{{content}}
 
-  <main>
-    {{content}}
-  </main>
+<footer>
+  {% include nav.html navclass='nav-bottom' %}
+  <p>© {{site.time | date:'%Y'}} Eurientis</p>
+</footer>
 
-  <footer>
-    <p>©</p>
-  </footer>
 </body>
 </html>
